@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Reviewer{% endblock %}
+
+{% block content %}
+    <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+        <div class="col-md-6">
+            <div class="border rounded">
+                <div class="text-center mb-4">
+                    <h1 class="h1-title">RevieweR</h1>
+                </div>
+                <form action="/reviews" method="POST">
+                    <div class="mb-4">
+                        <label class="form-label">Search</label>
+                        <input type="text" name="search" class="form-control" placeholder="ex. iphone 11" required>
+                        <small class="text-muted">Search by product name.</small>
+                    </div>
+    
+                    <input type="submit" value="Get Reviews" class="btn btn-primary btn-submit">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Reviews{% endblock %}
+
+{% block content %}
+    <div class="col-md-10 mx-auto mt-5">
+        <div class="text-center mb-5">
+            <h3 class="fw-bold h3-title">Reviews of {{reviews[0]['Product'] | capitalize}}</h3>
+        </div> 
+
+        {% for review in reviews %}
+          <div class="card mb-3">
+            <div class="card-header" style="display: flex; justify-content: space-between;">
+              <div class="col">
+                <i class="bi bi-chat-left-quote-fill"></i>&nbsp;
+                <strong>Review {{loop.index}}</strong>
+              </div>
+              <div class="col text-end">
+                <i class="bi bi-star-fill"></i>&nbsp;
+                <strong>{{review['Rating'] | capitalize}}</strong>
+              </div>
+            </div>
+            
+            <div class="card-body">
+              <h4 class="card-title fw-bold">{{review['CommentHead'] | capitalize}}</h4>
+              <blockquote class="mb-0">
+                <p>{{review['CommentBody'] | capitalize}}</p>
+                <footer class="blockquote-footer mt-3"><cite title="Source Title" class="source-title">{{review['Name'] | capitalize}}</cite></footer>
+              </blockquote>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+{% endblock %}
